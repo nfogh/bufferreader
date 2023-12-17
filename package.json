@@ -1,0 +1,35 @@
+{
+    "name": "bufferreader",
+    "version": "1.0.0",
+    "description": "Thin wrapper around node.js Buffer class which automatically keeps track of the offset on calls to read.",
+    "main": "out/bufferreader.js",
+    "types": "out/bufferreader.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "test": "mocha out/test/**/*.test.js",
+        "prepublish": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nfogh/bufferreader.git"
+    },
+    "keywords": [
+        "node.js",
+        "buffer",
+        "reader"
+    ],
+    "author": "Nikolaj Fogh",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/nfogh/bufferreader/issues"
+    },
+    "homepage": "https://github.com/nfogh/bufferreader#readme",
+    "devDependencies": {
+        "@types/chai": "^4.3.11",
+        "@types/mocha": "^10.0.6",
+        "@types/node": "^20.10.4",
+        "chai": "^4.3.10",
+        "mocha": "^10.2.0",
+        "typescript": "^5.3.3"
+    }
+}
