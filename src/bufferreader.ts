@@ -87,6 +87,34 @@ export class BufferReader {
     return value;
   }
 
+  readBigInt64LE(): bigint {
+    this.checkSize(8)
+    const value = this._buffer.readBigInt64LE(this._offset);
+    this._offset += 8;
+    return value;
+  }
+
+  readBigInt64BE(): bigint {
+    this.checkSize(8)
+    const value = this._buffer.readBigInt64BE(this._offset);
+    this._offset += 8;
+    return value;
+  }
+
+  readBigUInt64LE(): bigint {
+    this.checkSize(8)
+    const value = this._buffer.readBigUInt64LE(this._offset);
+    this._offset += 8;
+    return value;
+  }
+
+  readBigUInt64BE(): bigint {
+    this.checkSize(8)
+    const value = this._buffer.readBigUInt64BE(this._offset);
+    this._offset += 8;
+    return value;
+  }
+
   readBuffer(size: number): Buffer {
     this.checkSize(size)
     const value = this._buffer.subarray(this._offset, this._offset + size);

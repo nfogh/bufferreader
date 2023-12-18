@@ -74,6 +74,33 @@ describe('BufferReader', () => {
         expect(bufferReader.offset).equals(4);
     });
 
+    it('should read an unsigned 64-bit little-endian integer', () => {
+        bufferReader = new BufferReader(Buffer.from([0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08]));
+        const result = bufferReader.readBigUInt64LE();
+        expect(result).equals(578437695752307201n);
+        expect(bufferReader.offset).equals(8);
+    });
+
+    it('should read an unsigned 64-bit big-endian integer', () => {
+        bufferReader = new BufferReader(Buffer.from([0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08]));
+        const result = bufferReader.readBigUInt64BE();
+        expect(result).equals(72623859790382856n);
+        expect(bufferReader.offset).equals(8);
+    });
+
+    it('should read a signed 64-bit little-endian integer with sign bit set', () => {
+        bufferReader = new BufferReader(Buffer.from([0x7F, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]));
+        const result = bufferReader.readBigInt64LE();
+        expect(result).equals(-129n);
+        expect(bufferReader.offset).equals(8);
+    });
+
+    it('should read a signed 64-bit big-endian integer with sign bit set', () => {
+        bufferReader = new BufferReader(Buffer.from([0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x7F]));
+        const result = bufferReader.readBigInt64BE();
+        expect(result).equals(-129n);
+        expect(bufferReader.offset).equals(8);
+    });
 
     it('should read a buffer of specified size', () => {
         bufferReader = new BufferReader(Buffer.from([0x01, 0x02, 0x03, 0x04]));
