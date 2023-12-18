@@ -18,6 +18,10 @@
         "buffer",
         "reader"
     ],
+    "files":[
+        "/out/bufferreader.js",
+        "/out/bufferreader.d.ts"
+    ],
     "author": "Nikolaj Fogh",
     "license": "MIT",
     "bugs": {
