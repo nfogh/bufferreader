@@ -6,7 +6,7 @@
     "types": "out/bufferreader.d.ts",
     "scripts": {
         "build": "tsc",
-        "test": "mocha out/test/**/*.test.js",
+        "test": "tsc && mocha out/test/**/*.test.js",
         "prepublish": "tsc"
     },
     "repository": {

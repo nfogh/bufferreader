@@ -113,4 +113,12 @@ describe('BufferReader', () => {
         expect(buffer2[1]).equals(0x04);
         expect(bufferReader.offset).equals(4);
     });
+
+    it('should skip forward when skip is called', () => {
+        bufferReader = new BufferReader(Buffer.from([0x01, 0x02, 0x03, 0x04]));
+        bufferReader.skip(1);
+        expect(bufferReader.offset).equals(1);
+        bufferReader.skip(2);
+        expect(bufferReader.offset).equals(3);
+    });
 });

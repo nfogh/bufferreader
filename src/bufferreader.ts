@@ -24,6 +24,11 @@ export class BufferReader {
     return value;
   }
 
+  skip(numBytes: number) {
+    this.checkSize(numBytes);
+    this._offset += numBytes;
+  }
+
   readInt8(): number {
     this.checkSize(1)
     const value = this._buffer.readInt8(this._offset);
