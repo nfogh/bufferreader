@@ -1,6 +1,6 @@
 {
     "name": "node-bufferreader",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Thin wrapper around node.js Buffer class which automatically keeps track of the offset on calls to read.",
     "main": "out/bufferreader.js",
     "types": "out/bufferreader.d.ts",
